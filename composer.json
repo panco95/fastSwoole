@@ -1,0 +1,32 @@
+{
+  "name": "panco/fastSwoole",
+  "description": "The fast php framework with swoole-ext!",
+  "type": "project",
+  "keywords": [
+    "framework",
+    "php",
+    "swoole",
+    "fastSwoole"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "http://fastSwoole.iorip.cn",
+  "authors": [
+    {
+      "name": "Panco",
+      "email": "1129443982@qq.com@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "app\\": "application"
+    }
+  },
+  "require": {
+    "ext-json": "*",
+    "topthink/think-template": "^1.0",
+    "topthink/think-orm": "^1.2",
+    "topthink/think-cache": "^1.0"
+  },
+  "require-dev": {
+  }
+}
