@@ -27,8 +27,30 @@ $http->set([
 ]);
 
 $http->on('start', function () use ($http, $app) {
-    echo "WebServer is run at " . $app['host'] . ":" . $app['port'] . "\n";
-    echo "WorkerNum: {$http->setting['worker_num']}\n\n";
+    $swoole_version = swoole_version();
+    $php_version = phpversion();
+    $fastSwoole_version = FASTSWOOLE_VERSION;
+    $daemonize = $app['deamonize'] ? "true" : "false";
+    $debug = $app['debug'] ? "true" : "false";
+    echo <<<EOT
+    
+███████╗ █████╗ ███████╗████████╗  ███████╗██╗    ██╗ ██████╗  ██████╗ ██╗     ███████╗
+██╔════╝██╔══██╗██╔════╝╚══██╔══╝  ██╔════╝██║    ██║██╔═══██╗██╔═══██╗██║     ██╔════╝
+█████╗  ███████║███████╗   ██║     ███████╗██║ █╗ ██║██║   ██║██║   ██║██║     █████╗  
+██╔══╝  ██╔══██║╚════██║   ██║     ╚════██║██║███╗██║██║   ██║██║   ██║██║     ██╔══╝  
+██║     ██║  ██║███████║   ██║     ███████║╚███╔███╔╝╚██████╔╝╚██████╔╝███████╗███████╗
+╚═╝     ╚═╝  ╚═╝╚══════╝   ╚═╝     ╚══════╝ ╚══╝╚══╝  ╚═════╝  ╚═════╝ ╚══════╝╚══════╝ 
+main server         WEB_SERVER
+debug               {$debug}
+daemonize           {$daemonize}
+listen address      {$app['host']}
+listen port         {$app['port']}
+worker num          {$app['worker_num']}
+swoole version      {$swoole_version}
+php version         {$php_version}
+fastSwoole          {$fastSwoole_version}
+
+EOT;
 });
 
 $http->on('request', function ($request, $response) {
