@@ -8,7 +8,6 @@
 // +----------------------------------------------------------------------
 // | Author: Panco <1129443982@qq.com>
 // +----------------------------------------------------------------------
-
 define("ROOT_PATH", __DIR__);
 define("APP_PATH", ROOT_PATH . "/application");
 define("FASTSWOOLE_VERSION", "0.1beta");

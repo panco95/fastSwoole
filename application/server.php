@@ -12,9 +12,12 @@
 /**
  * 应用服务核心
  */
+
 namespace app;
 
 use library\Config;
+use library\Error;
+use library\Log;
 use library\Route;
 use Swoole\Http\Server;
 
@@ -57,10 +60,12 @@ EOT;
 });
 
 $http->on('request', function ($request, $response) {
+    $response->header("content-type", "text/html; charset=utf-8");
     $start = getMicroTime();
     $path = $request->server['path_info'];
     $method = $request->server['request_method'];
     $query_string = isset($request->server["query_string"]) ? $request->server["query_string"] : "";
+    Error::error($response);
     Route::route($path, $request, $response);
     $end = getMicroTime();
     $time = round($end - $start, 4);
