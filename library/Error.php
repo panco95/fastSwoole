@@ -25,10 +25,8 @@ class Error
      */
     public static function error($response)
     {
-        header("Content:text/html; charset=utf-8");
         register_shutdown_function(function () use ($response) {
             if ($error = error_get_last()) {
-                var_dump("echo");
                 $message = "File：{$error['file']}，Line：{$error['line']}，Message：" . $error['message'] . "\n";
                 \library\Log::write($message, "Error");
                 $response->end("Error：<br>File：{$error['file']}<br>Line：{$error['line']}<br>Message：{$error['message']}");
