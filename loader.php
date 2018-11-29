@@ -17,6 +17,7 @@ require_once ROOT_PATH . "/config/app.php";
 require_once APP_PATH . "/common.php";
 require_once ROOT_PATH . "/library/Route.php";
 
+//自动载入
 spl_autoload_register(function ($class) {
     $class = ROOT_PATH . "/" . str_replace("app", "application", str_replace("\\", "/", $class)) . ".php";
     if (file_exists($class)) {
@@ -25,6 +26,7 @@ spl_autoload_register(function ($class) {
 });
 
 \think\Db::setConfig(\library\Config::get("db"));
+//数据库定时ping，防止断开连接
 swoole_timer_tick(60 * 1000, function () {
     \think\Db::query("show tables;");
 });

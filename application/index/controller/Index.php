@@ -13,10 +13,21 @@ namespace app\index\controller;
 
 use library\Container;
 use library\Controller;
+use library\Log;
 
+/**
+ * Index控制器示例
+ * Class Index
+ * @package app\index\controller
+ */
 class Index extends Controller
 {
 
+    /**
+     * 默认路由index方法
+     * @param $request
+     * @param $response
+     */
     public function index($request, $response)
     {
         $response->end(Container::template()->fetch("tpl/welcome"));
@@ -24,6 +35,7 @@ class Index extends Controller
 
     public function readme($request, $response)
     {
+        Log::write("test log!");
         $response->end("readme!");
     }
 

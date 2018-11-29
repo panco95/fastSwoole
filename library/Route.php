@@ -11,9 +11,20 @@
 
 namespace library;
 
+/**
+ * 路由支持
+ * Class Route
+ * @package library
+ */
 Class Route
 {
 
+    /**
+     * 路由基础方法
+     * @param $path
+     * @param $request
+     * @param $response
+     */
     public static function route($path, $request, $response)
     {
         if ($path === "/") {
@@ -24,7 +35,12 @@ Class Route
         self::custom($path_arr, $request, $response);
     }
 
-
+    /**
+     * path_info路由模式支持
+     * @param $path_arr
+     * @param $request
+     * @param $response
+     */
     private static function path_info($path_arr, $request, $response)
     {
         if (count($path_arr) === 3) {
@@ -44,7 +60,12 @@ Class Route
         }
     }
 
-
+    /**
+     * 自定义路由支持
+     * @param $path_arr
+     * @param $request
+     * @param $response
+     */
     private static function custom($path_arr, $request, $response)
     {
         $route = join("/", $path_arr);
@@ -68,7 +89,12 @@ Class Route
         }
     }
 
-
+    /**
+     * 统一路由错误响应
+     * @param $response
+     * @param int $code
+     * @param string $message
+     */
     private static function error($response, $code = 404, $message = "error!")
     {
         Container::template()->assign(["code" => $code, "message" => $message]);

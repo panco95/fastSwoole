@@ -11,6 +11,11 @@
 
 namespace library;
 
+/**
+ * 控制器基础支持
+ * Class Controller
+ * @package library
+ */
 class Controller
 {
 

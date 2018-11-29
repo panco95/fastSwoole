@@ -1,0 +1,38 @@
+<?php
+// +----------------------------------------------------------------------
+// | fastSwoole [ WE CAN FAST MORE AND MORE ]
+// +----------------------------------------------------------------------
+// | Copyright (c) 2018 http://fastSwoole.iorip.cn All rights reserved.
+// +----------------------------------------------------------------------
+// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
+// +----------------------------------------------------------------------
+// | Author: Panco <1129443982@qq.com>
+// +----------------------------------------------------------------------
+
+namespace library;
+
+/**
+ * 日志支持
+ * Class Log
+ * @package library
+ */
+class Log
+{
+
+    /**
+     * 记录日志
+     * @param string $data：日志内容
+     * @param string $code：日志标识
+     */
+    public static function write($data = "", $code = "log")
+    {
+        if (!is_dir(ROOT_PATH . "/runtime/log")) mkdir(ROOT_PATH . "/runtime/log", 0777);
+        $year_month = date("Y-m", time());
+        if (!is_dir(ROOT_PATH . "/runtime/log/{$year_month}")) mkdir(ROOT_PATH . "/runtime/log/{$year_month}", 0777);
+        $day = date("d", time());
+        if (is_array($data)) $data = json_encode($data);
+        $time = date("Y-m-d H:i:s", time());
+        file_put_contents(ROOT_PATH . "/runtime/log/{$year_month}/{$day}.log", "[$time][$code]：{$data}\n", FILE_APPEND);
+    }
+
+}

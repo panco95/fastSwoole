@@ -9,6 +9,9 @@
 // | Author: Panco <1129443982@qq.com>
 // +----------------------------------------------------------------------
 
+/**
+ * 模板引擎配置项
+ */
 return [
     'view_path' => ROOT_PATH . '/views/',
     'cache_path' => ROOT_PATH . '/runtime/template/',

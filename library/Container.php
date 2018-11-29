@@ -11,11 +11,17 @@
 
 namespace library;
 
+/**
+ * 框架基础容器管理
+ * Class Container
+ * @package library
+ */
 class Container
 {
 
     private static $template = null;
 
+    //模板引擎
     public static function template()
     {
         if (self::$template === null) {

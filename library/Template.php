@@ -14,7 +14,7 @@ namespace library;
 use think\exception\TemplateNotFoundException;
 
 /**
- * ThinkPHP分离出来的模板引擎
+ * 模板引擎
  * 支持XML标签和普通标签的模板解析
  * 编译型模板引擎 支持动态缓存
  */
