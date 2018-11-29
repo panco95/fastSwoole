@@ -24,9 +24,3 @@ spl_autoload_register(function ($class) {
         require_once $class;
     }
 });
-
-\think\Db::setConfig(\library\Config::get("db"));
-//数据库定时ping，防止断开连接
-swoole_timer_tick(60 * 1000, function () {
-    \think\Db::query("show tables;");
-});

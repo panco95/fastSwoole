@@ -27,11 +27,7 @@ Class Route
      */
     public static function route($path, $request, $response)
     {
-        if ($path === "/") {
-            $path_arr = Config::get("app", "default_route");
-        } else {
-            $path_arr = explode("/", substr($path, 1));
-        }
+        $path_arr = explode("/", substr($path, 1));
         self::custom($path_arr, $request, $response);
     }
 

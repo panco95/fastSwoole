@@ -13,7 +13,6 @@ namespace app\index\controller;
 
 use library\Container;
 use library\Controller;
-use library\Log;
 
 /**
  * Index控制器示例
@@ -31,12 +30,6 @@ class Index extends Controller
     public function index($request, $response)
     {
         $response->end(Container::template()->fetch("tpl/welcome"));
-    }
-
-    public function readme($request, $response)
-    {
-        Log::write("test log!");
-        $response->end("readme!");
     }
 
 }

@@ -12,20 +12,8 @@
 //自定义路由
 
 return [
-    'index/test' => [
-        "method" => "GET",
+    '' => [
+        "method" => "GET|POST",
         "pathinfo" => "index/index/index"
     ],
-    "readme" => [
-        "method" => "GET|POST",
-        "pathinfo" => "index/index/readme"
-    ],
-    "login" => [
-        "method" => "POST",
-        "pathinfo" => "index/user/login"
-    ],
-    "register" => [
-        "method" => "POST",
-        "pathinfo" => "index/user/register"
-    ]
 ];
