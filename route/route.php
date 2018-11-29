@@ -10,12 +10,20 @@
 // +----------------------------------------------------------------------
 
 return [
-    // 驱动方式（支持file/memcache/redis/xcache/wincache/sqlite）
-    'type' => 'File',
-    // 缓存保存目录
-    'path' => ROOT_PATH . '/runtime/cache/',
-    // 缓存前缀
-    'prefix' => '',
-    // 缓存有效期 0表示永久缓存
-    'expire' => 0,
+    'index/test' => [
+        "method" => "GET",
+        "pathinfo" => "index/index/index"
+    ],
+    "readme" => [
+        "method" => "GET|POST",
+        "pathinfo" => "index/index/readme"
+    ],
+    "login" => [
+        "method" => "POST",
+        "pathinfo" => "index/user/login"
+    ],
+    "register" => [
+        "method" => "POST",
+        "pathinfo" => "index/user/register"
+    ]
 ];

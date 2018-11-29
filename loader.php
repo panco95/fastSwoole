@@ -25,4 +25,6 @@ spl_autoload_register(function ($class) {
 });
 
 \think\Db::setConfig(\library\Config::get("db"));
-\think\Cache::init(\library\Config::get("cache"));
+swoole_timer_tick(60 * 1000, function () {
+    \think\Db::query("show tables;");
+});

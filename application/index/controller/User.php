@@ -11,20 +11,20 @@
 
 namespace app\index\controller;
 
-use library\Container;
+
 use library\Controller;
 
-class Index extends Controller
+class User extends Controller
 {
 
-    public function index($request, $response)
+    public function login($request, $response)
     {
-        $response->end(Container::template()->fetch("tpl/welcome"));
+        $response->end("login!");
     }
 
-    public function readme($request, $response)
+    public function register($request, $response)
     {
-        $response->end("readme!");
+        $response->end("register");
     }
 
 }
