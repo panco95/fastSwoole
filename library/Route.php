@@ -45,14 +45,14 @@ Class Route
             $class = "\app\\" . $module . "\\controller\\" . $path_arr[1];
             $func = $path_arr[2];
             if (!class_exists($class)) {
-                self::error($response, 404, "控制器不存在！");
+                Error::response($request, $response, 404, "控制器不存在！");
             } else if (!method_exists($class, $func)) {
-                self::error($response, 404, "方法不存在！");
+                Error::response($request, $response, 404, "方法不存在！");
             } else {
                 call_user_func_array([$class, $func], [$request, $response]);
             }
         } else {
-            self::error($response, 404, "路由不存在！");
+            Error::response($request, $response, 404, "路由不存在！");
         }
     }
 

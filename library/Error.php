@@ -42,7 +42,7 @@ class Error
      * @param int $code
      * @param string $message
      */
-    private static function response($request, $response, $code = 404, $message = "error!")
+    public static function response($request, $response, $code = 404, $message = "error!")
     {
         $debug = Config::get("app", "debug");
         false === $debug && $message = "调试模式未开启！";
