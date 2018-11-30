@@ -65,7 +65,6 @@ Class Route
 
                 $c->$func($request, $response);
                 unset($c);
-                unset($m);
                 //call_user_func_array([$class, $func], [$request, $response]);
             }
         } else {
