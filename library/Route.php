@@ -85,18 +85,4 @@ Class Route
         }
     }
 
-    /**
-     * 统一路由错误响应
-     * @param $response
-     * @param int $code
-     * @param string $message
-     */
-    private static function error($response, $code = 404, $message = "error!")
-    {
-        $debug = Config::get("app", "debug");
-        false === $debug && $message = "调试模式未开启！";
-        Container::template()->assign(["code" => $code, "message" => $message]);
-        $response->end(Container::template()->fetch("tpl/error"));
-    }
-
 }

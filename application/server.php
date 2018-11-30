@@ -59,13 +59,13 @@ fastSwoole          {$fastSwoole_version}
 EOT;
 });
 
-$http->on('request', function ($request, $response) {
+$http->on('request', function ($request, $response) use ($http) {
+    Error::error($request, $response);
     $response->header("content-type", "text/html; charset=utf-8");
     $start = getMicroTime();
     $path = $request->server['path_info'];
     $method = $request->server['request_method'];
     $query_string = isset($request->server["query_string"]) ? $request->server["query_string"] : "";
-    Error::error($response);
     Route::route($path, $request, $response);
     $end = getMicroTime();
     $time = round($end - $start, 4);
