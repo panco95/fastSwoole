@@ -49,7 +49,24 @@ Class Route
             } else if (!method_exists($class, $func)) {
                 Error::response($request, $response, 404, "方法不存在！");
             } else {
-                call_user_func_array([$class, $func], [$request, $response]);
+                $c = new $class($request, $response);
+                //中间件支持
+                if (isset($c->middleware)) {
+                    if (!class_exists($c->middleware)) {
+                        Error::response($request, $response, 500, "中间件不存在！");
+                    } else if (!method_exists($c->middleware, "handler")) {
+                        Error::response($request, $response, 500, "中间件handler方法不存在！");
+                    } else {
+                        $m = new $c->middleware();
+                        $m->handler($request, $response);
+                        unset($m);
+                    }
+                }
+
+                $c->$func($request, $response);
+                unset($c);
+                unset($m);
+                //call_user_func_array([$class, $func], [$request, $response]);
             }
         } else {
             Error::response($request, $response, 404, "路由不存在！");

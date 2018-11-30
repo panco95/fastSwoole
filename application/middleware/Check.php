@@ -9,29 +9,24 @@
 // | Author: Panco <1129443982@qq.com>
 // +----------------------------------------------------------------------
 
-namespace app\index\controller;
-
-use library\Container;
-use library\Controller;
+namespace app\middleware;
 
 /**
- * Index控制器示例
- * Class Index
- * @package app\index\controller
+ * 中间件示例
+ * Class Check
+ * @package app\middleware
  */
-class Index extends Controller
+class Check
 {
 
-    public $middleware = 'app\middleware\Check';
-    
     /**
-     * 默认路由index方法
+     * 中间件方法
      * @param $request
      * @param $response
      */
-    public function index()
+    public function handler($request, $response)
     {
-        $this->response->end(Container::template()->fetch("tpl/welcome"));
+        echo "this is middleware\n";
     }
 
 }
