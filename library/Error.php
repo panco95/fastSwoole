@@ -27,9 +27,16 @@ class Error
     {
         register_shutdown_function(function () use ($response) {
             if ($error = error_get_last()) {
+                $debug = Config::get("app", "debug");
                 $message = "File：{$error['file']}，Line：{$error['line']}，Message：" . $error['message'] . "\n";
                 \library\Log::write($message, "Error");
-                $response->end("Error：<br>File：{$error['file']}<br>Line：{$error['line']}<br>Message：{$error['message']}");
+                if (true === $debug) {
+                    Container::template()->assign(["code" => 500, "message" => "Line {$error['line']} at {$error['file']}：" . $error['message']]);
+                    $response->end(Container::template()->fetch("tpl/error"));
+                } else {
+                    Container::template()->assign(["code" => 500, "message" => "调试模式未开启！"]);
+                    $response->end(Container::template()->fetch("tpl/error"));
+                }
             }
         });
     }
