@@ -73,14 +73,14 @@ Class Route
                 $new_array = explode('/', $temp['pathinfo']);
                 self::path_info($new_array, $request, $response);
             } else {
-                self::error($response, 404, "路由不存在！");
+                Error::response($request, $response, 404, "路由不存在！");
             }
         } else {
             $force_route = Config::get("app", "force_route");
             if ($force_route === 0) {
                 self::path_info($path_arr, $request, $response);
             } else {
-                self::error($response, 404, "路由不存在！");
+                Error::response($request, $response, 404, "路由不存在！");
             }
         }
     }
