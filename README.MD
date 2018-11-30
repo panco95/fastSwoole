@@ -1,5 +1,7 @@
 **欢迎使用FastSwoole**
 
+![Image text](https://github.com/panco95/fastSwoole/blob/master/public/fastSwoole.png?raw=true)
+
 ![Image text](https://github.com/panco95/fastSwoole/blob/master/public/start.png?raw=true)
 
 _一个基于php + swoole扩展，具有高性能优势的Web框架，由于基于swoole扩展，所以仅支持Linux系统，PHP7.0+_
@@ -18,7 +20,24 @@ _一个基于php + swoole扩展，具有高性能优势的Web框架，由于基�
 `5、浏览器 ip:端口号`
 
 
-开发文档：
 
-`敬请期待!`
+开发文档（编写中）：https://www.kancloud.cn/panco/panco/860385
 
+
+已完成功能：
+
+`1、路由`
+
+`2、控制器`
+
+`3、中间件`
+
+`4、数据库`
+
+`5、缓存`
+
+`6、模板引擎`
+
+`7、日志`
+
+`8、错误处理`
