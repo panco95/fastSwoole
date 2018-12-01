@@ -11,7 +11,6 @@
 
 namespace app\index\controller;
 
-use library\Container;
 use library\Controller;
 
 /**
@@ -23,7 +22,7 @@ class Index extends Controller
 {
 
     //public $middleware = 'app\middleware\Check';
-    
+
     /**
      * 默认路由index方法
      * @param $request
@@ -31,7 +30,7 @@ class Index extends Controller
      */
     public function index()
     {
-        $this->response->end(Container::template()->fetch("tpl/welcome"));
+        $this->view(Container::template()->fetch("tpl/welcome"));
     }
 
 }
