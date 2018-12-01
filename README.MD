@@ -15,9 +15,13 @@ _一个基于php + swoole扩展，具有高性能优势的Web框架，由于基�
 
 `3、安swoole扩展：pecl install swoole`
 
-`4、开启web服务：php start.php`
+`4、开启服务：php start.php start`
 
-`5、浏览器 ip:端口号`
+`5、浏览器打开 127.0.0.8888`
+
+`6、非守护进程下关闭服务：ctrl + c`
+
+`7、守护进程下关闭服务：php start.php stop`
 
 
 
