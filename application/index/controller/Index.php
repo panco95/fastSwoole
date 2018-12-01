@@ -22,7 +22,7 @@ use library\Controller;
 class Index extends Controller
 {
 
-    public $middleware = 'app\middleware\Check';
+    //public $middleware = 'app\middleware\Check';
     
     /**
      * 默认路由index方法
