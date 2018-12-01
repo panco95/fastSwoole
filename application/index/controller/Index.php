@@ -33,4 +33,12 @@ class Index extends Controller
         $this->fetch("tpl/welcome", ["name" => "开发"]);
     }
 
+    /**
+     * json响应
+     */
+    public function intro()
+    {
+        $this->json(["name" => "FastSwoole", "author" => "panco"]);
+    }
+
 }

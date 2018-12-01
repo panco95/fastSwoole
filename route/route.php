@@ -17,4 +17,8 @@ return [
         "pathinfo" => "index/index/index",
         "middleware" => "\app\middleware\Check"  //路由中间件
     ],
+    "intro" => [
+        "method" => "GET|POST",
+        "pathinfo" => "index/index/intro"
+    ]
 ];

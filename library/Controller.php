@@ -181,7 +181,7 @@ class Controller
      */
     public function sendFile($filename)
     {
-        $this->response($filename);
+        $this->response->sendfile($filename);
     }
 
     /**
