@@ -4,7 +4,7 @@
 
 ![Image text](https://github.com/panco95/fastSwoole/blob/master/public/start.png?raw=true)
 
-_一个基于php + swoole扩展，具有高性能优势的Web框架，由于基于swoole扩展，所以仅支持Linux系统，PHP7.0+_
+基于php + swoole扩展，具有天生高性能优势的Web框架
 
 
  安装步骤：
@@ -18,11 +18,6 @@ _一个基于php + swoole扩展，具有高性能优势的Web框架，由于基�
 `4、开启服务：php start.php start`
 
 `5、浏览器打开 127.0.0.8888`
-
-`6、非守护进程下关闭服务：ctrl + c`
-
-`7、守护进程下关闭服务：php start.php stop`
-
 
 
 开发文档（编写中）：https://www.kancloud.cn/panco/panco/860385
@@ -45,3 +40,5 @@ _一个基于php + swoole扩展，具有高性能优势的Web框架，由于基�
 `7、日志`
 
 `8、错误处理`
+
+`9、服务进程管理`
