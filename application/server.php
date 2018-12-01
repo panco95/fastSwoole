@@ -17,7 +17,6 @@ namespace app;
 
 use library\Config;
 use library\Error;
-use library\Log;
 use library\Route;
 use Swoole\Http\Server;
 
@@ -29,7 +28,8 @@ $http->set([
     'document_root' => ROOT_PATH . '/public',
     'enable_static_handler' => true,
     'worker_num' => $app['worker_num'],
-    'daemonize' => $app['deamonize']
+    'daemonize' => $app['deamonize'],
+    'pid_file' => ROOT_PATH . '/runtime/server.pid',
 ]);
 
 $http->on('start', function () use ($http, $app) {
