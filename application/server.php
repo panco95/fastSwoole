@@ -30,6 +30,7 @@ $http->set([
     'worker_num' => $app['worker_num'],
     'daemonize' => $app['deamonize'],
     'pid_file' => ROOT_PATH . '/runtime/server.pid',
+    'upload_tmp_dir' => ROOT_PATH . '/public/uploads'
 ]);
 
 $http->on('start', function () use ($http, $app) {
