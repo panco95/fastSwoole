@@ -30,7 +30,7 @@ class Index extends Controller
      */
     public function index()
     {
-        $this->view(Container::template()->fetch("tpl/welcome"));
+        $this->fetch("tpl/welcome", ["name" => "开发"]);
     }
 
 }

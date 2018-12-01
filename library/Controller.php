@@ -176,21 +176,51 @@ class Controller
     }
 
     /**
-     * 返回响应
-     * @param $content
-     */
-    public function view($content)
-    {
-        $this->response->end($content);
-    }
-
-    /**
      * 响应文件
      * @param $filename
      */
     public function sendFile($filename)
     {
         $this->response($filename);
+    }
+
+    /**
+     * html响应
+     * @param $content
+     */
+    public function fetch($tpl, $array = [])
+    {
+        if (is_array($array) && count($array) > 0) {
+            Container::template()->assign($array);
+        }
+        $this->response->end(Container::template()->fetch($tpl));
+    }
+
+    /**
+     * json响应
+     * @param $array
+     */
+    public function json($array)
+    {
+        $this->response->end(json_encode($array));
+    }
+
+    /**
+     * xml响应
+     * @param $array
+     */
+    public function xml($array)
+    {
+        $xml = "<root>";
+        foreach ($array as $key => $val) {
+            if (is_array($val)) {
+                $xml .= "<" . $key . ">" . $this->xml($val) . "</" . $key . ">";
+            } else {
+                $xml .= "<" . $key . ">" . $val . "</" . $key . ">";
+            }
+        }
+        $xml .= "</root>";
+        $this->response->end($xml);
     }
 
 }
