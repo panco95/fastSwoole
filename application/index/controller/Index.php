@@ -14,9 +14,7 @@ namespace app\index\controller;
 use library\Controller;
 
 /**
- * Index控制器示例
- * Class Index
- * @package app\index\controller
+ * Index控制器
  */
 class Index extends Controller
 {
@@ -25,16 +23,16 @@ class Index extends Controller
 
     /**
      * 默认路由index方法
-     * @param $request
-     * @param $response
      */
     public function index()
     {
+        \library\Config::get("app","");
         $this->fetch("tpl/welcome", ["name" => "开发"]);
     }
 
     /**
      * json响应
+     *
      */
     public function intro()
     {

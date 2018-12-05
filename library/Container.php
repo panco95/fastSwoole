@@ -50,7 +50,7 @@ class Container
     public static function cache()
     {
         if (self::$cache === null) {
-            self::$cache = new \swoole_table(102400);
+            self::$cache = new \swoole_table(Config::get("app", "max_cache_size"));
             self::$cache->column('val', \swoole_table::TYPE_STRING, 1024);
             self::$cache->create();
         }
