@@ -13,12 +13,16 @@
 
 return [
     '' => [
-        "method" => "GET|POST",
-        "pathinfo" => "index/index/index",
-        "middleware" => "\app\middleware\Check"  //路由中间件
+        "method" => "GET",
+        "pathinfo" => "index/index/index"
     ],
     "intro" => [
         "method" => "GET|POST",
         "pathinfo" => "index/index/intro"
+    ],
+    'tell' => [
+        "method" => "GET|POST",
+        "pathinfo" => "index/index/tell",
+        "middleware" => "\app\middleware\Check"  //路由中间件
     ]
 ];

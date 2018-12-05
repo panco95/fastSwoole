@@ -12,6 +12,7 @@
 namespace app\index\controller;
 
 use library\Controller;
+use app\index\service\Index as IndexService;
 
 /**
  * Index控制器
@@ -19,24 +20,27 @@ use library\Controller;
 class Index extends Controller
 {
 
-    //public $middleware = 'app\middleware\Check';
+    public $middleware = 'app\middleware\Check';  //控制器中间件
 
-    /**
-     * 默认路由index方法
-     */
+    //默认方法，简单开发演示
     public function index()
     {
-        \library\Config::get("app","");
-        $this->fetch("tpl/welcome", ["name" => "开发"]);
+        $id = $this->get("id", 0);  //获取个体请求参数id
+        $id = IndexService::saveId($id);  //调取服务层
+        $this->fetch("tpl/welcome", ["name" => "开发", "id" => $id]);
     }
 
-    /**
-     * json响应
-     *
-     */
+    //返回json
     public function intro()
     {
         $this->json(["name" => "FastSwoole", "author" => "panco"]);
     }
+
+    //返回字符串
+    public function tell()
+    {
+        $this->text("hello");
+    }
+
 
 }

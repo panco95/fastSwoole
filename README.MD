@@ -6,6 +6,9 @@
 
 基于php + swoole扩展，具有天生高性能优势的Web框架
 
+开发文档：https://www.kancloud.cn/panco/panco/860385
+
+官网：http://fastswoole.iorip.cn
 
  安装步骤：
 
@@ -18,27 +21,3 @@
 `4、开启服务：php start.php start`
 
 `5、浏览器打开 127.0.0.8888`
-
-
-开发文档：https://www.kancloud.cn/panco/panco/860385
-
-
-已完成功能：
-
-`1、路由`
-
-`2、控制器`
-
-`3、中间件`
-
-`4、数据库`
-
-`5、缓存`
-
-`6、模板引擎`
-
-`7、日志`
-
-`8、错误处理`
-
-`9、服务进程管理`

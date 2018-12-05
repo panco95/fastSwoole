@@ -158,9 +158,9 @@ class Controller
      * 字符串响应
      * @param $string
      */
-    public function string($string)
+    public function text($string)
     {
-        $this->response->end(json_encode($string));
+        $this->response->end($string);
     }
 
     /**

@@ -53,6 +53,7 @@ daemonize           {$daemonize}
 listen address      {$app['host']}
 listen port         {$app['port']}
 worker num          {$app['worker_num']}
+force_route         {$app['force_route']}
 swoole version      {$swoole_version}
 php version         {$php_version}
 fastSwoole          {$fastSwoole_version}
