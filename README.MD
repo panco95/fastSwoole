@@ -20,7 +20,7 @@
 `5、浏览器打开 127.0.0.8888`
 
 
-开发文档（编写中）：https://www.kancloud.cn/panco/panco/860385
+开发文档：https://www.kancloud.cn/panco/panco/860385
 
 
 已完成功能：
