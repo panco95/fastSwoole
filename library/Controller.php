@@ -19,8 +19,8 @@ namespace library;
 class Controller
 {
 
-    private $request;
-    private $response;
+    protected $request;
+    protected $response;
 
     public function __construct($request, $response)
     {
