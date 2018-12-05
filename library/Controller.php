@@ -197,30 +197,21 @@ class Controller
     }
 
     /**
+     * 字符串响应
+     * @param $string
+     */
+    public function string($string)
+    {
+        $this->response->end(json_encode($string));
+    }
+
+    /**
      * json响应
      * @param $array
      */
     public function json($array)
     {
         $this->response->end(json_encode($array));
-    }
-
-    /**
-     * xml响应
-     * @param $array
-     */
-    public function xml($array)
-    {
-        $xml = "<root>";
-        foreach ($array as $key => $val) {
-            if (is_array($val)) {
-                $xml .= "<" . $key . ">" . $this->xml($val) . "</" . $key . ">";
-            } else {
-                $xml .= "<" . $key . ">" . $val . "</" . $key . ">";
-            }
-        }
-        $xml .= "</root>";
-        $this->response->end($xml);
     }
 
 }
