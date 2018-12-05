@@ -6,9 +6,13 @@
 
 基于php + swoole扩展，具有天生高性能优势的Web框架
 
-开发文档：https://www.kancloud.cn/panco/panco/860385
+宗旨：大道至简 - 不传统的PHP高性能框架
+
+开发文档：https://www.kancloud.cn/panco/panco/864408
 
 官网：http://fastswoole.iorip.cn
+
+提示：框架刚刚起步，还有很多需要完善和优化的地方
 
  安装步骤：
 
