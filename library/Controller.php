@@ -74,21 +74,6 @@ class Controller
     }
 
     /**
-     * 获取服务器信息，相当于$_SERVER
-     * @param $key
-     * @param bool $default
-     * @return bool
-     */
-    public function server($key, $default = false)
-    {
-        if (isset($this->request->server[$key])) {
-            return $this->request->server[$key];
-        } else {
-            return $default;
-        }
-    }
-
-    /**
      * 获取cookie
      * @param $key
      * @param bool $default
@@ -126,24 +111,6 @@ class Controller
         return $this->rawContent();
     }
 
-    /**
-     * 获取原始HTTP报文
-     * @return mixed
-     */
-    public function getData()
-    {
-        return $this->request->getData();
-    }
-
-    /**
-     * 设置返回header
-     * @param $key
-     * @param $val
-     */
-    public function setHeader($key, $val)
-    {
-        $this->response->header($key, $val);
-    }
 
     /**
      * 设置返回cookie
@@ -154,15 +121,6 @@ class Controller
     public function setCookie($key, $val, $expire = 0)
     {
         $this->response->cookie($key, $val, $expire, $path = ROOT_PATH . "/runtime/cookie");
-    }
-
-    /**
-     * 返回带状态吗响应
-     * @param $code
-     */
-    public function status($code)
-    {
-        $this->response->status($code);
     }
 
     /**、
