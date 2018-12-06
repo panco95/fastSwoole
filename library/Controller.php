@@ -21,11 +21,13 @@ class Controller
 
     protected $request;
     protected $response;
+    protected $template;
 
     public function __construct($request, $response)
     {
         $this->request = $request;
         $this->response = $response;
+        $this->template = new Template(Config::get("template"));
     }
 
     /**
@@ -149,9 +151,9 @@ class Controller
     public function fetch($tpl, $array = [])
     {
         if (is_array($array) && count($array) > 0) {
-            Container::template()->assign($array);
+            $this->template->assign($array);
         }
-        $this->response->end(Container::template()->fetch($tpl));
+        $this->response->end($this->template->fetch($tpl));
     }
 
     /**
