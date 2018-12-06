@@ -28,7 +28,7 @@ Class Route
     public static function route($path, $request, $response)
     {
         $path_arr = explode("/", substr($path, 1));
-        self::custom($path_arr, $request, $response);
+        return self::custom($path_arr, $request, $response);
     }
 
     /**
@@ -51,10 +51,10 @@ Class Route
             } else {
                 $c = new $class($request, $response);
                 isset($c->middleware) && self::middleware($c->middleware, $request, $response, "before");
-                $c->$func($request, $response);
+                $result = $c->$func($request, $response);
                 isset($c->middleware) && self::middleware($c->middleware, $request, $response, "after");
                 unset($c);
-
+                return $result;
             }
         } else {
             Error::response($request, $response, 404, "找不到页面！");
@@ -78,15 +78,16 @@ Class Route
             if ($methods == "*" || in_array($request->server['request_method'], explode("|", $methods))) {
                 $new_route = explode('/', $r[0]);
                 isset($r[2]) && self::middleware($r[2], $request, $response, "before");
-                self::path_info($new_route, $request, $response);
+                $result = self::path_info($new_route, $request, $response);
                 isset($r[2]) && self::middleware($r[2], $request, $response, "after");
+                return $result;
             } else {
                 Error::response($request, $response, 404, "找不到页面！");
             }
         } else {
             $force_route = Config::get("app", "force_route");
             if ($force_route === 0) {
-                self::path_info($path_arr, $request, $response);
+                return self::path_info($path_arr, $request, $response);
             } else {
                 Error::response($request, $response, 404, "找不到页面！");
             }
@@ -105,6 +106,25 @@ Class Route
             $m = new $middleware();
             $m->$func($request, $response);
             unset($m);
+        }
+    }
+
+    /**
+     * 执行过程
+     * @param $path
+     * @param $request
+     * @param $response
+     */
+    public static function work($path, $request, $response)
+    {
+        $result = self::route($path, $request, $response);
+        if (is_array($result)) {
+            $result = json_encode($result);
+        }
+        if (is_string($result)) {
+            $response->end($result);
+        } else {
+            $response->end("");
         }
     }
 

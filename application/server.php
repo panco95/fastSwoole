@@ -76,7 +76,7 @@ $http->on('request', function ($request, $response) use ($http) {
     $path = $request->server['path_info'];
     $method = $request->server['request_method'];
     $query_string = isset($request->server["query_string"]) ? $request->server["query_string"] : "";
-    Route::route($path, $request, $response);
+    Route::work($path, $request, $response);
     $end = getMicroTime();
     $time = round($end - $start, 4);
     echo "{$method}: {$path}  {$query_string}  {$time}ms\n";

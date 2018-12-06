@@ -76,53 +76,17 @@ class Controller
     }
 
     /**
-     * 获取cookie
-     * @param $key
-     * @param bool $default
-     * @return bool
-     */
-    public function cookie($key, $default = false)
-    {
-        if (isset($this->request->cookie[$key])) {
-            return $this->request->cookie[$key];
-        } else {
-            return $default;
-        }
-    }
-
-    /**
      * 获取上传文件
      * @param $key
      * @return bool
      */
     public function file($key)
     {
-        if (isset($this->request->cookie[$key])) {
+        if (isset($this->request->files[$key])) {
             return $this->request->files[$key];
         } else {
             return false;
         }
-    }
-
-    /**
-     * 获取原始内容
-     * @return mixed
-     */
-    public function rawContent()
-    {
-        return $this->rawContent();
-    }
-
-
-    /**
-     * 设置返回cookie
-     * @param $key
-     * @param $val
-     * @param int $expire
-     */
-    public function setCookie($key, $val, $expire = 0)
-    {
-        $this->response->cookie($key, $val, $expire, $path = ROOT_PATH . "/runtime/cookie");
     }
 
     /**、
@@ -136,15 +100,6 @@ class Controller
     }
 
     /**
-     * 响应文件
-     * @param $filename
-     */
-    public function sendFile($filename)
-    {
-        $this->response->sendfile($filename);
-    }
-
-    /**
      * html响应
      * @param $content
      */
@@ -153,25 +108,7 @@ class Controller
         if (is_array($array) && count($array) > 0) {
             $this->template->assign($array);
         }
-        $this->response->end($this->template->fetch($tpl));
-    }
-
-    /**
-     * 字符串响应
-     * @param $string
-     */
-    public function text($string)
-    {
-        $this->response->end($string);
-    }
-
-    /**
-     * json响应
-     * @param $array
-     */
-    public function json($array)
-    {
-        $this->response->end(json_encode($array));
+        return $this->template->fetch($tpl);
     }
 
 }

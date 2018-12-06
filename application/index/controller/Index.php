@@ -27,20 +27,13 @@ class Index extends Controller
     {
         $id = $this->get("id", 0);  //获取个体请求参数id
         $id = IndexService::saveId($id);  //调取服务层
-        $this->fetch("tpl/welcome", ["name" => "开发", "id" => $id]);
+        return $this->fetch("tpl/welcome", ["name" => "开发", "id" => $id]);
     }
 
     //返回json
     public function intro()
     {
-        $this->json(["name" => "FastSwoole", "author" => "panco"]);
+        return ["name" => "FastSwoole", "author" => "panco"];
     }
-
-    //返回字符串
-    public function tell()
-    {
-        $this->text("hello");
-    }
-
 
 }
