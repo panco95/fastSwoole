@@ -14,6 +14,6 @@
 return [
     //第一个参数为执行的模块/控制/方法，第二个参数请求方式(多个方式用|分割)，第三个参数中间件完整命名空间
     '/' => ["index/index/index", "*", "\app\middleware\Check"],
-    'intro' => ["index/index/index", "GET|POST"],
-    'tell' => ["index/index/index", "GET"],
+    'intro' => ["index/index/intro", "*"],
+    'tell' => ["index/index/tell", "GET"],
 ];

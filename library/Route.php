@@ -50,15 +50,14 @@ Class Route
                 Error::response($request, $response, 404, "方法不存在！");
             } else {
                 $c = new $class($request, $response);
-                //控制器中间件
-                if (isset($c->middleware)) {
-                    Route::middleware($c->middleware, $request, $response);
-                }
+                isset($c->middleware) && self::middleware($c->middleware, $request, $response, "before");
                 $c->$func($request, $response);
+                isset($c->middleware) && self::middleware($c->middleware, $request, $response, "after");
                 unset($c);
+
             }
         } else {
-            Error::response($request, $response, 404, "路由不存在！");
+            Error::response($request, $response, 404, "找不到页面！");
         }
     }
 
@@ -76,22 +75,20 @@ Class Route
         if (key_exists($route, $routes)) {
             $r = $routes[$route];
             $methods = $r[1];
-            //路由中间件
-            if (in_array($request->server['request_method'], explode("|", $methods)) || $methods == "*") {
+            if ($methods == "*" || in_array($request->server['request_method'], explode("|", $methods))) {
                 $new_route = explode('/', $r[0]);
-                if (isset($r[2])) {
-                    Route::middleware($r[2], $request, $response);
-                }
+                isset($r[2]) && self::middleware($r[2], $request, $response, "before");
                 self::path_info($new_route, $request, $response);
+                isset($r[2]) && self::middleware($r[2], $request, $response, "after");
             } else {
-                Error::response($request, $response, 404, "路由不存在！");
+                Error::response($request, $response, 404, "找不到页面！");
             }
         } else {
             $force_route = Config::get("app", "force_route");
             if ($force_route === 0) {
                 self::path_info($path_arr, $request, $response);
             } else {
-                Error::response($request, $response, 404, "路由不存在！");
+                Error::response($request, $response, 404, "找不到页面！");
             }
         }
     }
@@ -102,15 +99,11 @@ Class Route
      * @param $request
      * @param $response
      */
-    private static function middleware($middleware, $request, $response)
+    private static function middleware($middleware, $request, $response, $func)
     {
-        if (!class_exists($middleware)) {
-            Error::response($request, $response, 500, "中间件不存在！");
-        } else if (!method_exists($middleware, "handler")) {
-            Error::response($request, $response, 500, "中间件handler方法不存在！");
-        } else {
+        if (class_exists($middleware) && method_exists($middleware, $func)) {
             $m = new $middleware();
-            $m->handler($request, $response);
+            $m->$func($request, $response);
             unset($m);
         }
     }

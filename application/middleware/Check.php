@@ -13,20 +13,28 @@ namespace app\middleware;
 
 /**
  * 中间件示例
- * Class Check
- * @package app\middleware
  */
 class Check
 {
 
     /**
-     * 中间件方法
+     * 中间件前置方法
      * @param $request
      * @param $response
      */
-    public function handler($request, $response)
+    public function before($request, $response)
     {
-        echo "this is middleware\n";
+        echo "this is before middleware\n";
+    }
+
+    /**
+     * 中间件后置方法
+     * @param $request
+     * @param $response
+     */
+    public function after($request, $response)
+    {
+        echo "this is after middleware\n";
     }
 
 }

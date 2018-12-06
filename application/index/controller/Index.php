@@ -20,7 +20,7 @@ use app\index\service\Index as IndexService;
 class Index extends Controller
 {
 
-    //public $middleware = 'app\middleware\Check';  //控制器中间件
+    public $middleware = 'app\middleware\Check';  //控制器中间件
 
     //默认方法，简单开发演示
     public function index()
