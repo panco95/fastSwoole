@@ -71,16 +71,17 @@ Class Route
     private static function custom($path_arr, $request, $response)
     {
         $route = join("/", $path_arr);
+        $route == "" && $route = "/";
         $routes = require(ROOT_PATH . '/route/route.php');
         if (key_exists($route, $routes)) {
             $r = $routes[$route];
-            $methods = $r['method'];
+            $methods = $r[1];
             //路由中间件
-            if (isset($r['middleware'])) {
-                Route::middleware($r['middleware'], $request, $response);
-            }
-            if (in_array($request->server['request_method'], explode("|", $methods))) {
-                $new_route = explode('/', $r['pathinfo']);
+            if (in_array($request->server['request_method'], explode("|", $methods)) || $methods == "*") {
+                $new_route = explode('/', $r[0]);
+                if (isset($r[2])) {
+                    Route::middleware($r[2], $request, $response);
+                }
                 self::path_info($new_route, $request, $response);
             } else {
                 Error::response($request, $response, 404, "路由不存在！");
