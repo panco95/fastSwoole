@@ -19,5 +19,4 @@ return [
     "port" => 8888,  //服务端口号
     "worker_num" => 8,  //服务进程数
     "force_route" => 0,  //强制路由模式，1开启，0关闭
-    "max_cache_size" => 102400,  //最大缓存总数
 ];

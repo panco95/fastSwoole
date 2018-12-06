@@ -24,6 +24,6 @@
   "require": {
     "ext-json": "*",
     "topthink/think-template": "^1.0",
-    "catfan/medoo": "^1.6"
+    "topthink/think-orm": "^1.2"
   }
 }

@@ -23,6 +23,6 @@ return [
     'tell' => [
         "method" => "GET|POST",
         "pathinfo" => "index/index/tell",
-        "middleware" => "\app\middleware\Check"  //路由中间件
+        //"middleware" => "\app\middleware\Check"  //路由中间件
     ]
 ];

@@ -19,6 +19,7 @@ use library\Config;
 use library\Error;
 use library\Route;
 use Swoole\Http\Server;
+use think\Db;
 
 $app = Config::get("app");
 
@@ -59,6 +60,13 @@ php version         {$php_version}
 fastSwoole          {$fastSwoole_version}
 
 EOT;
+});
+
+$http->on('workerStart', function () {
+    Db::setConfig(Config::get("db"));
+    swoole_timer_tick(60 * 1000, function () {
+        Db::query("show tables;");
+    });
 });
 
 $http->on('request', function ($request, $response) use ($http) {
