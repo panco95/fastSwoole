@@ -12,8 +12,6 @@
 
 官网：http://fastswoole.iorip.cn
 
-提示：框架刚刚起步，还有很多需要完善和优化的地方
-
  安装步骤：
 
 `1、下载框架：git clone git@github.com:panco95/fastSwoole.git`
