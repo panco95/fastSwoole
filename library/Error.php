@@ -30,7 +30,7 @@ class Error
         register_shutdown_function(function () use ($request, $response) {
             if ($error = error_get_last()) {
                 $message = "File：{$error['file']}，Line：{$error['line']}，Message：" . $error['message'] . "\n";
-                \library\Log::write($message, "Error", 1);
+                Log::write($message, "Error", 1);
                 Error::response($request, $response, 500, "Line {$error['line']} at {$error['file']}：" . $error['message']);
             }
         });
