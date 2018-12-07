@@ -9,13 +9,11 @@
 // | Author: Panco <1129443982@qq.com>
 // +----------------------------------------------------------------------
 
-/**
- * 应用服务核心
- */
+// 服务启动入口
 
-namespace app;
+namespace App;
 
-use library\Config;
+use FastSwoole\Library\Config;
 
 $server = Config::get("app","server_type");
 require_once ROOT_PATH . "/server/{$server}.php";

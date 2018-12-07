@@ -1,8 +1,7 @@
 <?php
 
-use library\Config;
-use library\Console;
-use think\Db;
+use FastSwoole\Library\Config;
+use FastSwoole\Library\Console;
 
 $app = Config::get("app");
 $ws = new Swoole\WebSocket\Server($app['host'], $app['port']);
@@ -21,10 +20,13 @@ $ws->on('start', function () {
 
 //服务进程开启，数量为worker_num
 $ws->on('workerStart', function () {
-    Db::setConfig(Config::get("db"));
-    swoole_timer_tick(60 * 1000, function () {
-        Db::query("show tables;");
-    });
+    $use_db = Config::get("app", "use_db");
+    if ($use_db) {
+        Db::setConfig(Config::get("db"));
+        swoole_timer_tick(60 * 1000, function () {
+            Db::query("show tables;");
+        });
+    }
 });
 
 //新连接

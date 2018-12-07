@@ -9,7 +9,7 @@
 // | Author: Panco <1129443982@qq.com>
 // +----------------------------------------------------------------------
 
-namespace library;
+namespace FastSwoole\Library;
 
 /**
  * 路由支持
@@ -42,7 +42,7 @@ Class Route
         if (count($path_arr) === 3) {
             $module = $path_arr[0];
             $path_arr[1][0] = strtoupper($path_arr[1][0]);
-            $class = "\app\Http\\" . $module . "\\controller\\" . $path_arr[1];
+            $class = "\App\Http\\" . $module . "\\controller\\" . $path_arr[1];
             $func = $path_arr[2];
             if (!class_exists($class)) {
                 Error::response($request, $response, 404, "控制器不存在！");

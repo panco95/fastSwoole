@@ -9,10 +9,9 @@
 // | Author: Panco <1129443982@qq.com>
 // +----------------------------------------------------------------------
 
-namespace app\Http\index\controller;
+namespace App\Http\index\controller;
 
-use library\Controller;
-use app\Http\index\service\Index as IndexService;
+use FastSwoole\Library\Controller;
 
 /**
  * Index控制器
@@ -20,20 +19,18 @@ use app\Http\index\service\Index as IndexService;
 class Index extends Controller
 {
 
-    public $middleware = 'app\Http\middleware\Check';  //控制器中间件
+    public $middleware = '\App\Http\middleware\Check';  //控制器中间件
 
-    //默认方法，简单开发演示
+    //默认方法
     public function index()
     {
-        $id = $this->get("id", 0);  //获取个体请求参数id
-        $id = IndexService::saveId($id);  //调取服务层
-        return $this->fetch("tpl/welcome", ["name" => "开发", "id" => $id]);
+        return $this->fetch("tpl/welcome", ["name" => "开发"]);
     }
 
     //返回json
     public function intro()
     {
-        return getMicroTime();
+        //return getMicroTime();  //调用common.php公共方法
         return ["name" => "FastSwoole", "author" => "panco"];
     }
 

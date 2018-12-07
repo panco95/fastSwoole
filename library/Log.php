@@ -9,7 +9,7 @@
 // | Author: Panco <1129443982@qq.com>
 // +----------------------------------------------------------------------
 
-namespace library;
+namespace FastSwoole\Library;
 
 /**
  * 日志支持

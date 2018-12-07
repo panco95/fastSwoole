@@ -9,7 +9,7 @@
 // | Author: Panco <1129443982@qq.com>
 // +----------------------------------------------------------------------
 
-namespace app\Http\middleware;
+namespace App\Http\middleware;
 
 /**
  * 中间件示例

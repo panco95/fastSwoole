@@ -13,7 +13,10 @@
  * 模板引擎配置项
  */
 return [
-    'view_path' => ROOT_PATH . '/views/',
-    'cache_path' => ROOT_PATH . '/runtime/template/',
-    'view_suffix' => 'html',
+    // 模板文件路径
+    'view_path'      => ROOT_PATH . '/views/',
+    // 模板缓存路径
+    'cache_path'     => ROOT_PATH . '/runtime/template/',
+    // 模板后缀名
+    'view_suffix'    => 'html',
 ];

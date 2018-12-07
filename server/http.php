@@ -1,9 +1,9 @@
 <?php
 
-use library\Config;
-use library\Error;
-use library\Route;
-use library\Console;
+use FastSwoole\Library\Config;
+use FastSwoole\Library\Error;
+use FastSwoole\Library\Route;
+use FastSwoole\Library\Console;
 use think\Db;
 
 $app = Config::get("app");
@@ -24,10 +24,13 @@ $http->on('start', function () {
 
 //服务进程开启，数量为worker_num
 $http->on('workerStart', function () {
-    Db::setConfig(Config::get("db"));
-    swoole_timer_tick(60 * 1000, function () {
-        Db::query("show tables;");
-    });
+    $use_db = Config::get("app", "use_db");
+    if ($use_db) {
+        Db::setConfig(Config::get("db"));
+        swoole_timer_tick(60 * 1000, function () {
+            Db::query("show tables;");
+        });
+    }
 });
 
 //收到http请求

@@ -1,8 +1,7 @@
 <?php
 
-use library\Config;
-use library\Console;
-use think\Db;
+use FastSwoole\Library\Config;
+use FastSwoole\Library\Console;
 
 $app = Config::get("app");
 $udp = new Swoole\Server($app['host'], $app['port'], SWOOLE_PROCESS, SWOOLE_SOCK_UDP);
@@ -19,10 +18,13 @@ $udp->on('Start', function ($server) {
 
 //服务进程开启，数量为worker_num
 $udp->on('WorkerStart', function ($server, $worker_id) {
-    Db::setConfig(Config::get("db"));
-    swoole_timer_tick(60 * 1000, function () {
-        Db::query("show tables;");
-    });
+    $use_db = Config::get("app", "use_db");
+    if ($use_db) {
+        Db::setConfig(Config::get("db"));
+        swoole_timer_tick(60 * 1000, function () {
+            Db::query("show tables;");
+        });
+    }
 });
 
 //收到消息

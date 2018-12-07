@@ -18,8 +18,12 @@ require_once ROOT_PATH . "/library/Route.php";
 
 //自动载入
 spl_autoload_register(function ($class) {
-    $class = ROOT_PATH . "/" . str_replace("app", "application", str_replace("\\", "/", $class)) . ".php";
+    $class = ROOT_PATH . "/" . str_replace("App", "application", str_replace("\\", "/", $class)) . ".php";
     if (file_exists($class)) {
+        require_once $class;
+    } else {
+        echo "/home/wwwroot/fastswoole/FastSwoole/Library/Config.php";
+        $class = str_replace("FastSwoole/Library", "library", str_replace("\\", "/", $class));
         require_once $class;
     }
 });
