@@ -9,6 +9,7 @@
 // | Author: Panco <1129443982@qq.com>
 // +----------------------------------------------------------------------
 
+isset($argv[1]) || $argv[1] = "start";
 $cmd = $argv[1];
 
 switch ($cmd) {
@@ -17,14 +18,18 @@ switch ($cmd) {
         require_once APP_PATH . '/server.php';
         break;
     case "stop":
-        $pid_file = __DIR__ . '/runtime/server.pid';
-        if (file_exists($pid_file)) {
-            $pid = file_get_contents($pid_file);
-            exec("kill -9 {$pid}");
-            unlink($pid_file);
-            echo "Server is stop!\n";
-        } else {
-            echo "Server is not run!\n";
+        $pid_dir = opendir(__DIR__. "/runtime/pids");
+        while ($row = readdir($pid_dir)) {
+            if ($row == "." || $row == ".." || $row == ".pid") continue;
+            $pid_file = __DIR__ . '/runtime/pids/{$row}';
+            if (file_exists($pid_file)) {
+                $pid = file_get_contents($pid_file);
+                exec("kill -9 {$pid}");
+                unlink($pid_file);
+                echo "{$row } server is stop!\n";
+            } else {
+                echo "{$row} server is not run!\n";
+            }
         }
         break;
 }

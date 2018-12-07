@@ -121,7 +121,7 @@ Class Route
         if (is_array($result)) {
             $result = json_encode($result);
         }
-        if (is_string($result)) {
+        if (is_string($result) || is_numeric($result)) {
             $response->end($result);
         } else {
             $response->end("");

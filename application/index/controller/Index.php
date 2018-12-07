@@ -33,6 +33,7 @@ class Index extends Controller
     //返回json
     public function intro()
     {
+        return getMicroTime();
         return ["name" => "FastSwoole", "author" => "panco"];
     }
 
