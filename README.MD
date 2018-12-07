@@ -4,9 +4,11 @@
 
 ![Image text](https://github.com/panco95/fastSwoole/blob/master/public/start.png?raw=true)
 
-基于php + swoole扩展，具有天生高性能优势的Web框架
+基于php + swoole扩展，具有天生高性能优势的PHP框架
 
 宗旨：大道至简 - 不传统的PHP高性能框架
+
+`说明：目前fastSwoole初步完成了HTTP服务，正在开发TCP、UDP、WebSocket服务，敬请期待！`
 
 开发文档：https://www.kancloud.cn/panco/panco/864408
 

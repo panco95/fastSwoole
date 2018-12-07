@@ -46,11 +46,13 @@ class Error
     {
         $debug = Config::get("app", "debug");
         false === $debug && $message = "调试模式未开启！";
-        Container::template()->assign(["code" => $code, "message" => $message]);
+        $template = new Template(Config::get("template"));
+        $template->assign(["code" => $code, "message" => $message]);
         //重新创建响应，防止错误处理可能出现request is finish
         $response->detach();
         $new_response = Response::create($request->fd);
-        $new_response->end(Container::template()->fetch("tpl/error"));
+        $new_response->end($template->fetch("tpl/error"));
+        unset($template);
     }
 
 }

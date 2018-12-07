@@ -42,7 +42,7 @@ Class Route
         if (count($path_arr) === 3) {
             $module = $path_arr[0];
             $path_arr[1][0] = strtoupper($path_arr[1][0]);
-            $class = "\app\\" . $module . "\\controller\\" . $path_arr[1];
+            $class = "\app\Http\\" . $module . "\\controller\\" . $path_arr[1];
             $func = $path_arr[2];
             if (!class_exists($class)) {
                 Error::response($request, $response, 404, "控制器不存在！");
@@ -71,7 +71,7 @@ Class Route
     {
         $route = join("/", $path_arr);
         $route == "" && $route = "/";
-        $routes = require(ROOT_PATH . '/route/route.php');
+        $routes = require(ROOT_PATH . '/route/http.php');
         if (key_exists($route, $routes)) {
             $r = $routes[$route];
             $methods = $r[1];
@@ -120,11 +120,11 @@ Class Route
         $result = self::route($path, $request, $response);
         if (is_array($result)) {
             $result = json_encode($result);
+        } else if (is_bool($result)) {
+            $result = (string)$result;
         }
         if (is_string($result) || is_numeric($result)) {
             $response->end($result);
-        } else {
-            $response->end("");
         }
     }
 
