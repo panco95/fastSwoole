@@ -20,8 +20,8 @@ switch ($cmd) {
     case "stop":
         $pid_dir = opendir(__DIR__. "/runtime/pids");
         while ($row = readdir($pid_dir)) {
-            if ($row == "." || $row == ".." || $row == ".pid") continue;
-            $pid_file = __DIR__ . '/runtime/pids/{$row}';
+            if ($row == "." || $row == ".." || $row == ".gitkeep") continue;
+            $pid_file = __DIR__ . "/runtime/pids/{$row}";
             if (file_exists($pid_file)) {
                 $pid = file_get_contents($pid_file);
                 exec("kill -9 {$pid}");

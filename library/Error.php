@@ -45,7 +45,7 @@ class Error
     public static function response($request, $response, $code = 404, $message = "error!")
     {
         $debug = Config::get("app", "debug");
-        false === $debug && $message = "调试模式未开启！";
+        0 == $debug && $message = "调试模式未开启！";
         $template = new Template(Config::get("template"));
         $template->assign(["code" => $code, "message" => $message]);
         //重新创建响应，防止错误处理可能出现request is finish

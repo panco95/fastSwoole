@@ -86,7 +86,7 @@ Class Route
             }
         } else {
             $force_route = Config::get("app", "force_route");
-            if ($force_route === 0) {
+            if ($force_route == 0) {
                 return self::path_info($path_arr, $request, $response);
             } else {
                 Error::response($request, $response, 404, "找不到页面！");

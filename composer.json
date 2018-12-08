@@ -24,6 +24,7 @@
   "require": {
     "ext-json": "*",
     "topthink/think-template": "^1.0",
-    "topthink/think-orm": "^1.2"
+    "topthink/think-orm": "^1.2",
+    "vlucas/phpdotenv": "^2.5"
   }
 }

@@ -18,5 +18,5 @@ return [
     // 模板缓存路径
     'cache_path'     => ROOT_PATH . '/runtime/template/',
     // 模板后缀名
-    'view_suffix'    => 'html',
+    'view_suffix'    => getenv("VIEW_SUFFIX")
 ];

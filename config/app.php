@@ -14,19 +14,19 @@
  */
 return [
     // 调试模式
-    "debug"        => true,
+    "debug"        => getenv("DEBUG"),
     // 守护进程
-    "deamonize"    => false,
+    "deamonize"    => getenv("DAEMONIZE"),
     // 服务类型，支持http，tcp，udp，websocket，分别对应server目录下的四个同名文件，可以自己扩展
-    "server_type"  => "http",
+    "server_type"  => getenv("SERVER_TYPE"),
     // 0.0.0.0表示对外公开访问，127.0.0.1表示本机访问
-    "host"         => "0.0.0.0",
+    "host"         => getenv("HOST"),
     // 服务端口号
-    "port"         => 8888,
+    "port"         => getenv("PORT"),
     // 服务进程数
-    "worker_num"   => 8,
+    "worker_num"   => getenv("WORKER_NUM"),
     // 强制路由模式
-    "force_route"  => 0,
+    "force_route"  => getenv("FORCE_ROUTE"),
     // 是否使用数据库
-    "use_db"       => 0,
+    "use_db"       => getenv("USE_DB"),
 ];

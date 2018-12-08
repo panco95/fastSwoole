@@ -22,8 +22,11 @@ spl_autoload_register(function ($class) {
     if (file_exists($class)) {
         require_once $class;
     } else {
-        echo "/home/wwwroot/fastswoole/FastSwoole/Library/Config.php";
         $class = str_replace("FastSwoole/Library", "library", str_replace("\\", "/", $class));
         require_once $class;
     }
 });
+
+//环境配置
+$dotenv = new \Dotenv\Dotenv(__DIR__);
+$dotenv->load();

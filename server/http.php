@@ -25,7 +25,7 @@ $http->on('start', function () {
 //服务进程开启，数量为worker_num
 $http->on('workerStart', function () {
     $use_db = Config::get("app", "use_db");
-    if ($use_db) {
+    if ($use_db == 1) {
         Db::setConfig(Config::get("db"));
         swoole_timer_tick(60 * 1000, function () {
             Db::query("show tables;");

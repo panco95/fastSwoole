@@ -19,7 +19,7 @@ $udp->on('Start', function ($server) {
 //服务进程开启，数量为worker_num
 $udp->on('WorkerStart', function ($server, $worker_id) {
     $use_db = Config::get("app", "use_db");
-    if ($use_db) {
+    if ($use_db == 1) {
         Db::setConfig(Config::get("db"));
         swoole_timer_tick(60 * 1000, function () {
             Db::query("show tables;");

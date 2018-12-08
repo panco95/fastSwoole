@@ -21,17 +21,14 @@ class Index extends Controller
 
     public $middleware = '\App\Http\middleware\Check';  //控制器中间件
 
-    //默认方法
     public function index()
     {
         return $this->fetch("tpl/welcome", ["name" => "开发"]);
     }
 
-    //返回json
-    public function intro()
+    public function hello()
     {
-        //return getMicroTime();  //调用common.php公共方法
-        return ["name" => "FastSwoole", "author" => "panco"];
+        return "hello world";
     }
 
 }
