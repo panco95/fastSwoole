@@ -4,7 +4,7 @@ use FastSwoole\Library\Config;
 use FastSwoole\Library\Console;
 
 $app = Config::get("app");
-$udp = new Swoole\Server($app['host'], $app['port'], SWOOLE_PROCESS, SWOOLE_SOCK_UDP);
+$udp = new \Swoole\Server($app['host'], $app['port'], SWOOLE_PROCESS, SWOOLE_SOCK_UDP);
 $udp->set(array(
     'worker_num' => $app['worker_num'],
     'daemonize' => $app['deamonize'],

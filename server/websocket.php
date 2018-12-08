@@ -4,7 +4,7 @@ use FastSwoole\Library\Config;
 use FastSwoole\Library\Console;
 
 $app = Config::get("app");
-$ws = new Swoole\WebSocket\Server($app['host'], $app['port']);
+$ws = new \Swoole\WebSocket\Server($app['host'], $app['port']);
 $ws->set([
     'worker_num' => $app['worker_num'],
     'daemonize' => $app['deamonize'],

@@ -16,7 +16,7 @@
 
  安装步骤：
 
-`1、下载框架：git clone git@github.com:panco95/fastSwoole.git 项目名称`
+`1、下载框架：git clone https://github.com/panco95/fastSwoole.git 项目名称`
 
 `2、安装所需类库：composer update`
 

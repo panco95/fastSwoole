@@ -7,7 +7,7 @@ use FastSwoole\Library\Console;
 use think\Db;
 
 $app = Config::get("app");
-$http = new Swoole\Http\Server($app['host'], $app['port']);
+$http = new \Swoole\Http\Server($app['host'], $app['port']);
 $http->set([
     'document_root' => ROOT_PATH . '/public',
     'enable_static_handler' => true,

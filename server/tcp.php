@@ -4,7 +4,7 @@ use FastSwoole\Library\Config;
 use FastSwoole\Library\Console;
 
 $app = Config::get("app");
-$tcp = new Swoole\Server($app['host'], $app['port'], SWOOLE_PROCESS, SWOOLE_SOCK_TCP);
+$tcp = new \Swoole\Server($app['host'], $app['port'], SWOOLE_PROCESS, SWOOLE_SOCK_TCP);
 $tcp->set(array(
     'worker_num' => $app['worker_num'],
     'daemonize' => $app['deamonize'],
