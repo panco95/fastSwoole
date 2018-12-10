@@ -130,14 +130,14 @@ class Controller
     /**
      * 验证请求参数
      * @param array $rule | 验证规则
-     * @return bool
+     * @return mixed
      */
     public function validate($rule = [])
     {
         $validate = Validate::make($rule);
         $params = self::params();
         if (!$validate->check($params)) {
-            return false;
+            return $validate->getError();
         }
         return true;
     }
