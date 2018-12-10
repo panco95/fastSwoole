@@ -25,6 +25,7 @@
     "ext-json": "*",
     "topthink/think-template": "^1.0",
     "topthink/think-orm": "^1.2",
-    "vlucas/phpdotenv": "^2.5"
+    "vlucas/phpdotenv": "^2.5",
+    "topthink/think-validate": "^1.0"
   }
 }

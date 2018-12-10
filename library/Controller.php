@@ -11,6 +11,8 @@
 
 namespace FastSwoole\Library;
 
+use think\Validate;
+
 /**
  * 控制器基础支持
  * Class Controller
@@ -123,6 +125,21 @@ class Controller
             $this->template->assign($array);
         }
         return $this->template->fetch($tpl);
+    }
+
+    /**
+     * 验证请求参数
+     * @param array $rule | 验证规则
+     * @return bool
+     */
+    public function validate($rule = [])
+    {
+        $validate = Validate::make($rule);
+        $params = self::params();
+        if (!$validate->check($params)) {
+            return false;
+        }
+        return true;
     }
 
 }
