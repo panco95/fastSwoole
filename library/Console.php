@@ -21,8 +21,7 @@ class Console
         $swoole_version = swoole_version();
         $php_version = phpversion();
         $fastSwoole_version = FASTSWOOLE_VERSION;
-        $daemonize = $app['deamonize'] ? "true" : "false";
-        $debug = $app['debug'] ? "true" : "false";
+        $app['debug'] = intval($app['debug']);
         echo <<<EOT
     
 ███████╗ █████╗ ███████╗████████╗  ███████╗██╗    ██╗ ██████╗  ██████╗ ██╗     ███████╗
@@ -31,10 +30,10 @@ class Console
 ██╔══╝  ██╔══██║╚════██║   ██║     ╚════██║██║███╗██║██║   ██║██║   ██║██║     ██╔══╝  
 ██║     ██║  ██║███████║   ██║     ███████║╚███╔███╔╝╚██████╔╝╚██████╔╝███████╗███████╗
 ╚═╝     ╚═╝  ╚═╝╚══════╝   ╚═╝     ╚══════╝ ╚══╝╚══╝  ╚═════╝  ╚═════╝ ╚══════╝╚══════╝ 
-server type         {$server_type}_SERVER
-debug               {$debug}
-daemonize           {$daemonize}
-listen address      {$app['host']}
+server_type         {$server_type}_server
+debug               {$app['debug']}
+daemonize           0
+listen_address      {$app['host']}
 listen port         {$app['port']}
 worker num          {$app['worker_num']}
 force route         {$app['force_route']}

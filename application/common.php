@@ -20,3 +20,13 @@ function getMicroTime()
     list($usec, $sec) = explode(" ", microtime());
     return (float)$usec + (float)$sec;
 }
+
+function env($param, $default = "")
+{
+    $value = getenv($param);
+    if (!$value) {
+        return $default;
+    } else {
+        return $value;
+    }
+}

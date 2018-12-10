@@ -11,9 +11,9 @@
 define("ROOT_PATH", __DIR__);
 define("APP_PATH", ROOT_PATH . "/application");
 define("FASTSWOOLE_VERSION", "0.1dev");
+require_once APP_PATH . "/common.php";
 require_once ROOT_PATH . "/vendor/autoload.php";
 require_once ROOT_PATH . "/config/app.php";
-require_once APP_PATH . "/common.php";
 require_once ROOT_PATH . "/library/Route.php";
 
 //自动载入

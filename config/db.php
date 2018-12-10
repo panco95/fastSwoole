@@ -14,23 +14,23 @@
  */
 return [
     // 数据库类型
-    'type'            => getenv("DB_TYPE"),
+    'type'            => env("DB_TYPE","mysql"),
     // 服务器地址
-    'hostname'        => getenv("DB_HOST"),
+    'hostname'        => env("DB_HOST","127.0.0.1"),
     // 数据库名
-    'database'        => getenv("DB_NAME"),
+    'database'        => env("DB_NAME",""),
     // 用户名
-    'username'        => getenv("DB_USER"),
+    'username'        => env("DB_USER","user"),
     // 密码
-    'password'        => getenv("DB_PASSWORD"),
+    'password'        => env("DB_PASSWORD",""),
     // 端口
-    'hostport'        => getenv("DB_PORT"),
+    'hostport'        => env("DB_PORT",3306),
     // 连接dsn
     'dsn'             => '',
     // 数据库连接参数
     'params'          => [],
     // 数据库编码默认采用utf8
-    'charset'         => getenv("DB_CHARSET"),
+    'charset'         => env("DB_CHARSET","utf8mb4"),
     // 数据库表前缀
     'prefix'          => '',
     // 数据库调试模式
