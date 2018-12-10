@@ -61,6 +61,20 @@ class Controller
     }
 
     /**
+     * 获取所有请求参数
+     * @return array
+     */
+    public function params()
+    {
+        $get = $this->request->get;
+        $post = $this->request->post;
+        !is_array($get) && $get = [];
+        !is_array($post) && $post = [];
+        $params = array_merge($get, $post);
+        return $params;
+    }
+
+    /**
      * 获取头部信息
      * @param $key
      * @param bool $default
