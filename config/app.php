@@ -22,7 +22,7 @@ return [
     // 0.0.0.0表示对外公开访问，127.0.0.1表示本机访问
     "host"         => env("HOST","0.0.0.0"),
     // 服务端口号
-    "port"         => env("PORT",8888),
+    "port"         => env("PORT",8001),
     // 服务进程数
     "worker_num"   => env("WORKER_NUM",8),
     // 强制路由模式
