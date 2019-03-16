@@ -23,7 +23,9 @@ spl_autoload_register(function ($class) {
         require_once $class;
     } else {
         $class = str_replace("FastSwoole/Library", "library", str_replace("\\", "/", $class));
-        require_once $class;
+        if (file_exists($class)) {
+            require_once $class;
+        }
     }
 });
 
