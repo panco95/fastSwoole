@@ -8,20 +8,16 @@
 
 宗旨：大道至简 - 不传统的PHP高性能框架
 
-`说明：目前fastSwoole初步完善了HTTP服务，正在完善TCP、UDP、WebSocket服务！`
-
 开发文档：https://www.kancloud.cn/panco/panco/864408
 
 官网：http://fastswoole.iorip.cn
 
  安装步骤：
 
-`1、下载框架：git clone https://github.com/panco95/fastSwoole.git 项目名称`
+`1、新建项目：composer create-project panco/fast-swoole`
 
-`2、安装所需类库：composer update`
+`2、安swoole扩展：pecl install swoole`
 
-`3、安swoole扩展：pecl install swoole`
+`3、开启Http服务：php start.php start`
 
-`4、开启Http服务：php start.php start`
-
-`5、浏览器访问 127.0.0.1.8001`（127.0.0.1是本机ip，使用时请改成服务器或虚拟机IP）
+`4、浏览器访问 127.0.0.1.8001`（127.0.0.1是本机ip，使用时请改成服务器或虚拟机IP）
