@@ -1,5 +1,5 @@
 {
-  "name": "panco/fastSwoole",
+  "name": "panco/fast-swoole",
   "description": "The fast php framework with swoole-ext!",
   "type": "project",
   "keywords": [
