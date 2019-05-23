@@ -27,7 +27,7 @@ $http->on('workerStart', function () {
     $use_db = Config::get("app", "use_db");
     if ($use_db == 1) {
         DB::setConfig(Config::get("db"));
-        swoole_timer_tick(60 * 1000, function () {
+        swoole_timer_tick(10 * 1000, function () {
             DB::ping();
         });
     }

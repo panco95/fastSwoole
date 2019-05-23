@@ -19,7 +19,7 @@ return [
     // 字符集
     'charset'   => 'utf8mb4',
     // 连接池数量
-    'pool'      => 5
+    'pool'      => 2
 ];
 
 
@@ -42,7 +42,7 @@ return [
         // 字符集
         'charset'   => 'utf8mb4',
         // 连接池数量
-        'pool'      => 5
+        'pool'      => 2
     ],
 
     'test2' => [
@@ -61,7 +61,7 @@ return [
         // 字符集
         'charset'   => 'utf8mb4',
         // 连接池数量
-        'pool'      => 5
+        'pool'      => 2
     ]
 ];
 */
