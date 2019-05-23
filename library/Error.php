@@ -1,13 +1,4 @@
 <?php
-// +----------------------------------------------------------------------
-// | fastSwoole [ WE CAN FAST MORE AND MORE ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2018 http://fastSwoole.iorip.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Panco <1129443982@qq.com>
-// +----------------------------------------------------------------------
 
 namespace FastSwoole\Library;
 
@@ -45,13 +36,12 @@ class Error
     public static function response($request, $response, $code = 404, $message = "error!")
     {
         $debug = Config::get("app", "debug");
-        0 == $debug && $message = "调试模式未开启！";
-        $template = new Template(Config::get("template"));
-        $template->assign(["code" => $code, "message" => $message]);
+        $debug == 0  && $message = "调试模式未开启！";
         //重新创建响应，防止错误处理可能出现request is finish
         $response->detach();
         $new_response = Response::create($request->fd);
-        $new_response->end($template->fetch("tpl/error"));
+        $new_response->header("content-type", "text/html; charset=utf-8");
+        $new_response->end("Error：<br><br>Code：{$code}<br>Message：{$message}<br>");
         unset($template);
     }
 

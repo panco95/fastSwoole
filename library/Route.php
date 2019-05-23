@@ -1,13 +1,4 @@
 <?php
-// +----------------------------------------------------------------------
-// | fastSwoole [ WE CAN FAST MORE AND MORE ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2018 http://fastSwoole.iorip.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Panco <1129443982@qq.com>
-// +----------------------------------------------------------------------
 
 namespace FastSwoole\Library;
 
@@ -85,12 +76,7 @@ Class Route
                 Error::response($request, $response, 404, "找不到页面！");
             }
         } else {
-            $force_route = Config::get("app", "force_route");
-            if ($force_route == 0) {
-                return self::path_info($path_arr, $request, $response);
-            } else {
-                Error::response($request, $response, 404, "找不到页面！");
-            }
+            return self::path_info($path_arr, $request, $response);
         }
     }
 

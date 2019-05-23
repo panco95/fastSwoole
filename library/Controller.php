@@ -1,17 +1,6 @@
 <?php
-// +----------------------------------------------------------------------
-// | fastSwoole [ WE CAN FAST MORE AND MORE ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2018 http://fastSwoole.iorip.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Panco <1129443982@qq.com>
-// +----------------------------------------------------------------------
 
 namespace FastSwoole\Library;
-
-use think\Validate;
 
 /**
  * 控制器基础支持
@@ -23,13 +12,11 @@ class Controller
 
     protected $request;
     protected $response;
-    protected $template;
 
     public function __construct($request, $response)
     {
         $this->request = $request;
         $this->response = $response;
-        $this->template = new Template(Config::get("template"));
     }
 
     /**
@@ -113,33 +100,6 @@ class Controller
     public function redirect($url, $code = 302)
     {
         $this->response->redirect($url, $code);
-    }
-
-    /**
-     * html响应
-     * @param $content
-     */
-    public function fetch($tpl, $array = [])
-    {
-        if (is_array($array) && count($array) > 0) {
-            $this->template->assign($array);
-        }
-        return $this->template->fetch($tpl);
-    }
-
-    /**
-     * 验证请求参数
-     * @param array $rule | 验证规则
-     * @return mixed
-     */
-    public function validate($rule = [])
-    {
-        $validate = Validate::make($rule);
-        $params = self::params();
-        if (!$validate->check($params)) {
-            return $validate->getError();
-        }
-        return true;
     }
 
 }

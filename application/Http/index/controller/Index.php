@@ -1,13 +1,4 @@
 <?php
-// +----------------------------------------------------------------------
-// | fastSwoole [ WE CAN FAST MORE AND MORE ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2018 http://fastSwoole.iorip.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Panco <1129443982@qq.com>
-// +----------------------------------------------------------------------
 
 namespace App\Http\index\controller;
 
@@ -19,16 +10,11 @@ use FastSwoole\Library\Controller;
 class Index extends Controller
 {
 
-    public $middleware = '\App\Http\middleware\Check';  //控制器中间件
+    //public $middleware = '\App\Http\middleware\Check';  //控制器中间件
 
     public function index()
     {
-        return $this->fetch("tpl/welcome", ["name" => "开发"]);
-    }
-
-    public function hello()
-    {
-        return "hello world";
+        return "FastSwoole<br>Version：1.1.0<br>Document：<a href='https://www.kancloud.cn/panco/panco/864408'>https://www.kancloud.cn/panco/panco/864408</a><br>Github：<a href='https://github.com/panco95/fastSwoole'>https://github.com/panco95/fastSwoole</a><br>Author：<a href='https://github.com/panco95'>Panco</a><br>";
     }
 
 }

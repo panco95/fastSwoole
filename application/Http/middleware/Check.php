@@ -1,13 +1,4 @@
 <?php
-// +----------------------------------------------------------------------
-// | fastSwoole [ WE CAN FAST MORE AND MORE ]
-// +----------------------------------------------------------------------
-// | Copyright (c) 2018 http://fastSwoole.iorip.cn All rights reserved.
-// +----------------------------------------------------------------------
-// | Licensed ( http://www.apache.org/licenses/LICENSE-2.0 )
-// +----------------------------------------------------------------------
-// | Author: Panco <1129443982@qq.com>
-// +----------------------------------------------------------------------
 
 namespace App\Http\middleware;
 
@@ -24,7 +15,7 @@ class Check
      */
     public function before($request, $response)
     {
-        echo "this is before middleware\n";
+        echo "Check middleware: before\n";
     }
 
     /**
@@ -34,7 +25,7 @@ class Check
      */
     public function after($request, $response)
     {
-        echo "this is after middleware\n";
+        echo "Check middleware: after\n";
     }
 
 }

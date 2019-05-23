@@ -1,6 +1,6 @@
 {
   "name": "panco/fast-swoole",
-  "description": "The fast php framework with swoole-ext!",
+  "description": "The fast php framework with swoole-ext",
   "type": "project",
   "keywords": [
     "framework",
@@ -23,9 +23,6 @@
   },
   "require": {
     "ext-json": "*",
-    "topthink/think-template": "^1.0",
-    "topthink/think-orm": "^1.2",
-    "vlucas/phpdotenv": "^2.5",
-    "topthink/think-validate": "^1.0"
+    "ext-pdo": "*"
   }
 }
