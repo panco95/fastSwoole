@@ -4,7 +4,7 @@ use FastSwoole\Library\Config;
 use FastSwoole\Library\Error;
 use FastSwoole\Library\Route;
 use FastSwoole\Library\Console;
-use FastSwoole\Library\DB\Facade\DB;
+use panco\facade\DB;
 
 $app = Config::get("app");
 $http = new \Swoole\Http\Server($app['host'], $app['port']);

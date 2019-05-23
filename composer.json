@@ -23,6 +23,7 @@
   },
   "require": {
     "ext-json": "*",
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "panco/multi-db": "^1.3"
   }
 }

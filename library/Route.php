@@ -109,7 +109,7 @@ Class Route
         } else if (is_bool($result)) {
             $result = (string)$result;
         }
-        if (is_string($result) || is_numeric($result)) {
+        if (is_string($result) || is_numeric($result) || !$result) {
             $response->end($result);
         }
     }
