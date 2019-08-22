@@ -4,7 +4,7 @@ use FastSwoole\Library\Config;
 use FastSwoole\Library\Error;
 use FastSwoole\Library\Route;
 use FastSwoole\Library\Console;
-use panco\facade\DB;
+use FastSwoole\Library\Init;
 
 $app = Config::get("app");
 $http = new \Swoole\Http\Server($app['host'], $app['port']);
@@ -24,13 +24,7 @@ $http->on('start', function () {
 
 //服务进程开启，数量为worker_num
 $http->on('workerStart', function () {
-    $use_db = Config::get("app", "use_db");
-    if ($use_db == 1) {
-        DB::setConfig(Config::get("db"));
-        swoole_timer_tick(10 * 1000, function () {
-            DB::ping();
-        });
-    }
+    Init::http();
 });
 
 //收到http请求
