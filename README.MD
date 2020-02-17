@@ -1,5 +1,6 @@
 **欢迎使用FastSwoole**
 
+承接项目开发，聊天室源码出售，请访问我的小站：http://106.12.133.91
 
 基于php + swoole扩展开发的web框架
 
@@ -8,7 +9,7 @@
 开发文档：https://www.kancloud.cn/panco/panco/864408
 
 ~~~~
-官网：http://fastswoole.iorip.cn
+官网：http://106.12.133.91
 
  安装步骤：
 
