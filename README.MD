@@ -9,7 +9,7 @@
 开发文档：https://www.kancloud.cn/panco/panco/864408
 
 ~~~~
-官网：http://106.12.133.91
+个人小站：http://www.panco.top
 
  安装步骤：
 
