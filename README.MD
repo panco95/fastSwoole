@@ -1,7 +1,5 @@
 **欢迎使用FastSwoole**
 
-承接项目开发，聊天室源码出售，请访问我的小站：http://106.12.133.91
-
 基于php + swoole扩展开发的web框架
 
 框架宗旨大道至简，一款简洁快速的微框架，适合api和微服务
@@ -9,7 +7,6 @@
 开发文档：https://www.kancloud.cn/panco/panco/864408
 
 ~~~~
-个人小站：http://www.panco.top
 
  安装步骤：
 
