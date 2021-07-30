@@ -12,7 +12,13 @@
 
 1、新建项目：
     正式版： composer create-project panco/fast-swoole
-    开发版： git clone https://github.com/panco95/fastSwoole.git ; composer install
+    开发版： git clone https://github.com/panco95/fastSwoole.git
+             cd fastSwoole
+             composer install
+    
+    *Docker*：Docker: docker pull composer
+             docker run --rm --interactive --tty  -v /data/fastSwoole:/app composer create-project panco/fast-swoole
+             cd /data/fastSwoole
 
 2、安swoole扩展：pecl install swoole
 
